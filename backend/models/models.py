@@ -10,3 +10,4 @@ class Users(Base):
     username:Mapped[str] = mapped_column(String(255),index=True,unique=True)
     email: Mapped[str] = mapped_column(String(255),index=True,unique=True)
     full_name: Mapped[str] = mapped_column(String(255),default=None)
+    password: Mapped[str] = mapped_column(String(256),default=None)

@@ -7,10 +7,13 @@ def get(filters: dict[str,any] , _db: Session = None) -> Users | None:
     
     if record:
         return record
+    return None
 
 @transactional
-def create(username:str, email: str, full_name:str, _db: Session = None) -> Users:
+def create(username:str, email: str, full_name:str, password: str, _db: Session = None) -> Users:
     user = Users(username=username,
                 email=email,
-                full_name=full_name)
+                full_name=full_name,
+                password=password
+                )
     _db.add(user)   

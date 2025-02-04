@@ -7,7 +7,13 @@ class Token(BaseModel):
 class TokenData(BaseModel):
     username: str | None = None
     
-class User(BaseModel):
+class SignUpUser(BaseModel):
     username: str
     email: str
+    password: str
     full_name: str | None = None
+    
+class LoginUser(BaseModel):
+    username: str | None = None
+    email: str 
+    password: str

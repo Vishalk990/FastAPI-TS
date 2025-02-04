@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager 
-from routers import auth
+from routers import auth,api
 from models import conn_db, models
 from Logger.logger import logger
 
@@ -17,7 +17,8 @@ models.Base.metadata.create_all(bind=conn_db.engine)
 
 
 app.include_router(router=auth.router)
+app.include_router(router=api.router)
 
-# @app.get("/")
-# async def root():
-#     return {"message":"Health check"}
+@app.get("/")
+async def root():
+    return {"message":"Health check"}
