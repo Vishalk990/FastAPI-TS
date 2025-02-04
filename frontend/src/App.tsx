@@ -1,8 +1,11 @@
+import SignUpForm from "./components/SignUpForm";
 
 function App() {
-  return (<div className="w-full h-screen p-4 bg-blue-200">
-    Hello world
-  </div>);
+  return (
+    <div className="w-full h-scree font-poppins">
+      <SignUpForm/>
+    </div>
+  );
 }
 
 export default App;

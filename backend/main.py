@@ -3,6 +3,7 @@ from contextlib import asynccontextmanager
 from routers import auth,api
 from models import conn_db, models
 from Logger.logger import logger
+from fastapi.middleware.cors import CORSMiddleware
 
 
 @asynccontextmanager
@@ -13,6 +14,8 @@ async def lifespan(_: FastAPI):
     
     
 app = FastAPI(title="full stack",lifespan=lifespan)
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+
 models.Base.metadata.create_all(bind=conn_db.engine)
 
 
